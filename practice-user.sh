@@ -15,15 +15,19 @@ validation () {
 
 if [ $1 -ne 0 ]; then
 
-    echo "$2 .... Failed"
+    echo "$2 .... is not existed Please proceed"
 else
-     echo "$2 ... Success"
+     echo "$2 ... existed"
+     exit 1
 fi        
 
 }
-read -p "Enter User name :" username
+echo "Please verify frist user is existed or not in system "
+
+read -p "Enter new User name :" username
 echo
 
 getent passwd ${username}
-validation $? "user creation"
-         
+validation $? "user"
+
+useradd ${username}
