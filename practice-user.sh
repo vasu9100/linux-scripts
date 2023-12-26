@@ -1,5 +1,6 @@
 #!/bin/bash
 who=$(whoami)
+user_validation=$(getent passwd | grep $username)
 
 if [ ${who} == "root" ]; then
 
@@ -22,4 +23,13 @@ while true; do
      exit 1
 
     fi
+
+    if [ ${user_validation} -eq 0 ]; then
+
+        echo "user existed Please enter another user name"
+        exit 1
+    else
+        echo " $username is new user please proceed"
+    fi        
+    
 done         
