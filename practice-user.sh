@@ -9,3 +9,16 @@ else
     echo "your are not root user please switch to root"
 
 fi    
+read -p "Enter User name :" username
+echo
+while true; do
+
+    if [ -z $username ]; then
+
+        read -p "Username should not be empty: " username
+        echo
+    else
+     echo "username is:" $username
+
+    fi
+done         
