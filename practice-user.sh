@@ -10,18 +10,23 @@ fi
 read -p "Enter Username: " username
 echo
 
-while [ -z "$username" ]; do
+while true; do
 
     read -p "Please Enter Username: " username
+
+    if [ -z "$username" ]; then
+        echo "Username cannot be empty. Please try again."
+    else
     
     id $username
-    
+
     if [ $? -ne 0 ]; then
         echo "this user new user"
     else
         echo "user existed"
         exit 1
-    fi       
+    fi
+  fi         
     
 done
 
