@@ -24,6 +24,6 @@ fi
 read -p "Enter User name :" username
 echo
 
-getent passwd | greap $username
+getent passwd ${username}
 validation $? "user creation"
          
