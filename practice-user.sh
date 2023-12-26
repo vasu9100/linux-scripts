@@ -19,6 +19,7 @@ while true; do
         echo
     else
      echo "username is:" $username
+     exit 1
 
     fi
 done         
