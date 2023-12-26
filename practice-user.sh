@@ -21,17 +21,22 @@ validation () {
 
 if [ $1 -ne 0 ]; then
 
-    echo -e "$2 .... ${GREEN}is not existed Please proceed"
+    echo -e "$2 .... ${GREEN}is not existed Please proceed ${NC}"
 else
-     echo -e "$2 ... ${RED}existed"
+     echo -e "$2 ... ${RED}existed ${NC}"
      exit 1
 fi        
 
 }
-echo -e "${YELLOW}Please verify frist user is existed or not in system "
+echo -e "${YELLOW}Please verify frist user is existed or not in system ${NC} "
 
 read -p "Enter new User name :" username
 echo
+
+while [ -z $username ]; do
+
+    read -p "User name Should not be empty :" username
+done    
 
 getent passwd ${username}
 validation $? "user"
